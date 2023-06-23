@@ -94,8 +94,8 @@ function click() {
     clearInterval(timer);
   }
 
-  let time_const = 1000; // Total time duration in milliseconds (1 second)
-  let interval = 10; // Update interval in milliseconds (adjust for smooth movement)
+  const time_const = 1000; // Total time duration in milliseconds (1 second)
+  const interval = 10; // Update interval in milliseconds (adjust for smooth movement)
   let time = time_const;
   let barWidth = app.view.width;
   let progress = barWidth;
@@ -107,27 +107,6 @@ function click() {
   progress_bar.y = 0;
 
   const updateProgressBar = () => {  
-    // Adjust time duration based on score
-    if (score < 15) {
-      time_const = 1000; // 1 second
-      interval = 10
-    } else if (score >= 15 && score <= 50) {
-      time_const = 900; // 0.9 seconds
-      interval = 9
-    } else if (score > 50 && score <= 100) {
-      time_const = 750; // 0.75 seconds
-      interval = 7.5
-    } else if (score > 100 && score <= 250) {
-      time_const = 500; // 0.5 seconds
-      interval = 0.5
-    } else if (score > 250 && score <= 500) {
-      time_const = 250; // 0.25 seconds
-      interval = 0.25
-    } else {
-      time_const = 100; // 0.1 seconds
-      interval = 0.1
-    }
-
     time -= interval; // Decrement time based on the interval
 
     if (time <= 0) {
